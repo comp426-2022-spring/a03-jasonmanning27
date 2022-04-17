@@ -94,7 +94,12 @@ function countFlips(array) {
  */
 
 function flipACoin(call) {
-
+  let flip = coinFlip()
+  const obj = { call: call, flip: flip, result: 'lose' }
+  if (call == flip) {
+      obj.result = 'win';
+  }
+  return obj;
 }
 
 
