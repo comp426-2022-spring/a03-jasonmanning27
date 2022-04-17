@@ -8,14 +8,14 @@ const express = require('express')
 const app = express()
 
 // set up for inputs
-const arv = require('minimist')(process.argv.slice(2))
+const argv = require('minimist')(process.argv.slice(2))
 argv['port']
 
 const port = argv['port'] || process.env.PORT || 5000
 
 // Start an app server
 const server = app.listen(port, () => {
-    console.log('App listening on port %PORT%'.replace('%PORT%', HTTP_PORT))
+    console.log('App listening on port %PORT%'.replace('%PORT%', port))
 });
 
 // checkpoints and endpoints
