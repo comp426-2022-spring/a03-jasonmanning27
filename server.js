@@ -68,9 +68,11 @@ app.get('/app/', (req, res) => { // checkpoint
 // Flip a coin endpoint
 app.get('/app/flip/', (req, res) => {
 
+    //res.status(200).json({"flip" : coinFlip()})
+    
     res.statusCode = 200;
     res.statusMessage = 'OK';
-
+    
     // flip a coin
     const result = coinFlip();
 
@@ -84,23 +86,24 @@ app.get('/app/flip/', (req, res) => {
 
 // Flip multiple coins
 app.get('/app/flip/:number', (req, res) => {
-
-    res.statusCode = 200;
-    res.statusMessage = 'OK';
-
+    
+    //res.statusCode = 200;
+    //res.statusMessage = 'OK';
+    
     // Flip multiple coins and store results
     const result = coinFlips(req.params.number)
+    res.status(200).json({"raw":result, "summary":countFlips(result)})
 
-    const count = countFlips(result);
+    //const count = countFlips(result);
 
-    res.json({"raw":result, "summary":count})
+    //res.json({"raw":result, "summary":count})
 
 });
 
 
 // Guess Heads
 app.get('/app/flip/call/heads', (req, res) => {
-
+    //res.status(200).json(flipACoin("tails"))
     res.statusCode = 200;
     res.statusMessage = 'OK';
 
@@ -112,7 +115,7 @@ app.get('/app/flip/call/heads', (req, res) => {
 
 // Guess Tails
 app.get('/app/flip/call/heads', (req, res) => {
-
+    //res.status(200).json(flipACoin("heads"))
     res.statusCode = 200;
     res.statusMessage = 'OK';
 
