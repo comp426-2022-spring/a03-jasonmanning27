@@ -91,8 +91,11 @@ app.get('/app/flips/:number', (req, res) => {
     //res.statusMessage = 'OK';
     
     // Flip multiple coins and store results
-    const result = coinFlips(req.params.number)
-    res.status(200).json({"raw" : result, "summary" : countFlips(result)})
+    //const result = coinFlips(req.params.number);
+    //res.status(200).json({"raw" : result, "summary" : countFlips(result)})
+
+    const flips = coinFlips(req.params.number);
+    res.status(200).json({"raw": flips, "summary" : countFlips(flips)})
 
     //const count = countFlips(result);
 
