@@ -2,11 +2,12 @@
 //import { coinFlip, coinFlips, countFlips, flipACoin} from './modules/coin.mjs'
 //import { createRequire } from 'module'
 
-// Require Express.js
+// Require Express.js / minimist
 const express = require('express')
 const minimist = require('minimist')
+
 const argv = minimist(process.argv.slice(2))
-const port = argv['port'] || 5000
+const port = argv["port"] || 5000
 const app = express()
 
 //functions
@@ -50,7 +51,7 @@ function coinFlip() {
 
 // Start an app server
 const server = app.listen(port, () => {
-    console.log('App listening on port %PORT%'.replace('%PORT%', port))
+    console.log('App listening on port %PORT%'.replace('%PORT%',port))
 });
 
 // checkpoints and endpoints
@@ -92,7 +93,7 @@ app.get('/app/flip/:number', (req, res) => {
 
     const count = countFlips(result);
 
-    res.json({"flips":result, "count":count})
+    res.json({"raw":result, "summary":count})
 
 });
 
