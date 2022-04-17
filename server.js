@@ -27,10 +27,11 @@ function coinFlip() {
     return results;
   }
   function countFlips(array) {
-    var head;
-    var tail;
+    var head = 0;
+    var tail = 0;
+
     for(i=0; i<array.length; i++) {
-      if(array[i]="heads") {
+      if(array[i] == 'heads') {
         head++;
       } else {
         tail++;
