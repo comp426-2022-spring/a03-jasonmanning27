@@ -1,17 +1,52 @@
 // import functions from coin.mjs
-import { coinFlip, coinFlips, countFlips, flipACoin} from './modules/coin.mjs'
-import { createRequire } from 'module'
+//import { coinFlip, coinFlips, countFlips, flipACoin} from './modules/coin.mjs'
+//import { createRequire } from 'module'
 
-const require = createRequire (import.meta.url)
 // Require Express.js
 const express = require('express')
+const minimist = require('minimist')
+const argv = minimist(process.argv.slice(2))
+const port = argv['port'] || 5000
 const app = express()
 
-// set up for inputs
-const argv = require('minimist')(process.argv.slice(2))
-argv['port']
+//functions
+function coinFlip() {
+    const result = Math.random();
+    if(result < .5) {
+      return "heads";
+    } else {
+      return "tails";
+    }
+  }
+  function coinFlips(flips) {
+    const results = [];
+    for(i=0; i <flips; i++) {
+      results[i] = coinFlip();
+    }
+    return results;
+  }
+  function countFlips(array) {
+    var heads;
+    var tails;
+    for(i=0; i<array.length; i++) {
+      if(array[i]="heads") {
+        heads++;
+      } else {
+        tails++;
+      }
+    }
+    return "{ heads: " + heads + ", tails: " + tails + " }";
+  } 
+  function flipACoin(call) {
+    let flip = coinFlip()
+    const obj = { call: call, flip: flip, result: 'lose' }
+    if (call == flip) {
+        obj.result = 'win';
+    }
+    return obj;
+  }
+//functions  
 
-const port = argv['port'] || process.env.PORT || 5000
 
 // Start an app server
 const server = app.listen(port, () => {
