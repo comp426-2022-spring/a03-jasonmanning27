@@ -27,16 +27,16 @@ function coinFlip() {
     return results;
   }
   function countFlips(array) {
-    var heads;
-    var tails;
+    var head;
+    var tail;
     for(i=0; i<array.length; i++) {
       if(array[i]="heads") {
-        heads++;
+        head++;
       } else {
-        tails++;
+        tail++;
       }
     }
-    return "{ heads: " + heads + ", tails: " + tails + " }";
+    return {heads: head, tails: tail};
   } 
   function flipACoin(call) {
     let flip = coinFlip()
@@ -92,7 +92,7 @@ app.get('/app/flips/:number', (req, res) => {
     
     // Flip multiple coins and store results
     const result = coinFlips(req.params.number)
-    res.status(200).json({"raw":result, "summary":countFlips(result)})
+    res.status(200).json({"raw" : result, "summary" : countFlips(result)})
 
     //const count = countFlips(result);
 
