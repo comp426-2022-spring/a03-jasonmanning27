@@ -1,5 +1,5 @@
 // import functions from coin.mjs
-import { coinFlip, coinFlips, countFlips, flipACoin } from './modules/coin.mjs'
+import { coinFlip, coinFlips, countFlips, flipACoin} from './modules/coin.mjs'
 import { createRequire } from 'module'
 
 const require = createRequire (import.meta.url)
@@ -14,8 +14,8 @@ argv['port']
 const port = argv['port'] || process.env.PORT || 5000
 
 // Start an app server
-const server = app.listen(HTTP_PORT, () => {
-    console.log('App listening on port %port%'.replace('%PORT%', HTTP_PORT))
+const server = app.listen(port, () => {
+    console.log('App listening on port %PORT%'.replace('%PORT%', HTTP_PORT))
 });
 
 // Default response for any other request
