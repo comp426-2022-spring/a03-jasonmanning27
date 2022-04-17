@@ -5,13 +5,13 @@
   "main": "server.js",
   "scripts": {
     "test": "node server.js --port=5555",
-    "start": "node server.js --port=5555"
+    "start": "node server.js"
   },
   "repository": {
-    "type": "module",
+    "type": "git",
     "url": "git+https://github.com/comp426-2022-spring/a03-jasonmanning27.git"
   },
-  "author": "Jason Manning",
+  "author": "",
   "license": "GPL-3.0-or-later",
   "bugs": {
     "url": "https://github.com/comp426-2022-spring/a03-jasonmanning27/issues"
@@ -20,7 +20,6 @@
   "dependencies": {
     "express": "^4.17.3",
     "minimist": "^1.2.6",
-    "node":  "^17.9.0"
-  },
-  "devDependencies": {}
+    "node": "^17.7.2"
+  }
 }
