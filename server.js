@@ -114,7 +114,7 @@ app.get('/app/flip/call/heads', (req, res) => {
 });
 
 // Guess Tails
-app.get('/app/flip/call/heads', (req, res) => {
+app.get('/app/flip/call/tails', (req, res) => {
     //res.status(200).json(flipACoin("heads"))
     res.statusCode = 200;
     res.statusMessage = 'OK';
