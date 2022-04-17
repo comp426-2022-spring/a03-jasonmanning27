@@ -18,11 +18,6 @@ const server = app.listen(port, () => {
     console.log('App listening on port %PORT%'.replace('%PORT%', HTTP_PORT))
 });
 
-// Default response for any other request
-app.use(function(req, res) {
-    res.status(404).send('404 NOT FOUND')
-});
-
 // checkpoints and endpoints
 
 app.get('/app/', (req, res) => { // checkpoint
@@ -91,6 +86,8 @@ app.get('/app/flip/call/heads', (req, res) => {
 
 });
 
+
+// Default response for any other request
 app.use(function(req, res) {
     res.status(404).send('404 NOT FOUND')
 });
