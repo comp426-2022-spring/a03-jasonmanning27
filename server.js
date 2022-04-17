@@ -85,7 +85,7 @@ app.get('/app/flip/', (req, res) => {
 });
 
 // Flip multiple coins
-app.get('/app/flip/:number', (req, res) => {
+app.get('/app/flips/:number', (req, res) => {
     
     //res.statusCode = 200;
     //res.statusMessage = 'OK';
